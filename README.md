@@ -1,0 +1,11 @@
+## Getting Started
+
+add ```.env``` file in root add copy code in ```.env.example``` to it
+
+First, run the development server:
+
+```bash
+npm run dev
+```
+
+Open [http://localhost:5000](http://localhost:5000) with your browser to see the result.
