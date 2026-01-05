@@ -52,9 +52,16 @@ export function roomController(socket) {
       return;
     }
 
-    socket.data.name = data.user.name;
-
+    
     try {
+      if (!data.user || !data.user.id || !data.user.name) {
+        socket.emit("error", { message: "Invalid user data" });
+        res({ success: false, error: "Invalid user data" });
+        return;
+      }
+
+      socket.data.name = data.user.name;
+
       if (
         rooms[data.roomId].users.some(
           (u) => u.id === data.user.id && u.name === data.user.name
